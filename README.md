@@ -29,7 +29,7 @@ To see the bug in action, run
     #      }
     #
     # and then field is not saved in .save(), because django _mistakenly_ thinks
-    # "field" is deferered, so it is ignored during .save() https://github.com/django/django/blob/93331877c81c1c6641b163b97813268f483ede4b/django/db/models/base.py#L712
+    # "field" is deferred, so it is ignored during .save() https://github.com/django/django/blob/93331877c81c1c6641b163b97813268f483ede4b/django/db/models/base.py#L712
     # ...
     #     elif not force_insert and deferred_fields and using == self._state.db:
     #         field_names = set()
@@ -44,4 +44,4 @@ To see the bug in action, run
     #                    force_update=force_update, update_fields=update_fields)
     # ...
 
-    # asserting that django thinks "field" is deffered (not that .models does NOT tell it to deferr this field!)
+    # asserting that django thinks "field" is deffered (not that .models does NOT tell it to defer this field!)
